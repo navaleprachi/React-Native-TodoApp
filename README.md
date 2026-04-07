@@ -1,50 +1,116 @@
-# Welcome to your Expo app 👋
+# To-Do App (React Native + Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple learning project to practice full-stack mobile development with React Native.
 
-## Get started
+This app lets you create and manage daily tasks with a clean UI, dark mode support, and a Convex backend.
 
-1. Install dependencies
+## Tech Stack
 
-   ```bash
-   npm install
-   ```
+- React Native (Expo SDK 54)
+- Expo Router (file-based navigation)
+- TypeScript
+- Convex (real-time backend + database)
+- AsyncStorage (persisting local theme preference)
+- Expo Linear Gradient + Vector Icons (UI styling)
 
-2. Start the app
+## Features
 
-   ```bash
-   npx expo start
-   ```
+- Add new todos
+- Edit existing todos
+- Mark todos as completed/incomplete
+- Delete a single todo
+- Clear all todos (Danger Zone)
+- Real-time todo data from Convex
+- Dark mode toggle with persisted preference
+- Progress stats and settings screen
 
-In the output, you'll find options to open the app in a
+## App Preview
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+<p align="center">
+  <img src="assets/images/MainPage.PNG" alt="Main Screen" height="520" />
+  <img src="assets/images/Settings.PNG" alt="Settings Screen" height="520" />
+</p>
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Project Goal
 
-## Get a fresh project
+This is a personal learning app focused on:
 
-When you're ready, run:
+- Building a complete CRUD flow in React Native
+- Integrating a hosted backend (Convex)
+- Structuring a medium-size Expo Router project
+- Practicing reusable components and theme systems
+
+## Getting Started
+
+### 1. Install dependencies
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Configure environment variables
 
-## Learn more
+Create a `.env.local` file in the project root:
 
-To learn more about developing your project with Expo, look at the following resources:
+```env
+CONVEX_DEPLOYMENT=your-convex-deployment
+EXPO_PUBLIC_CONVEX_URL=https://your-project.convex.cloud
+EXPO_PUBLIC_CONVEX_SITE_URL=https://your-project.convex.site
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 3. Run Convex dev server
 
-## Join the community
+```bash
+npx convex dev
+```
 
-Join our community of developers creating universal apps.
+Keep this running in a separate terminal.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### 4. Start Expo app
+
+```bash
+npx expo start
+```
+
+Then open on:
+
+- iOS Simulator
+- Android Emulator
+- Expo Go
+- Web
+
+## Available Scripts
+
+- `npm run start` - Start Expo
+- `npm run ios` - Open iOS simulator
+- `npm run android` - Open Android emulator
+- `npm run web` - Start web build
+- `npm run lint` - Run lint checks
+
+## Folder Structure
+
+```text
+to-do-app/
+  app/                # Expo Router screens and hooks
+  components/         # Reusable UI components
+  assets/styles/      # Screen-level style creators
+  convex/             # Backend functions + schema
+```
+
+## Notes
+
+- Theme preference is stored locally using AsyncStorage.
+- Todo data is stored in Convex and synced in real time.
+- `app-example/` contains starter/template reference code from initial setup.
+
+## Future Improvements
+
+- Input validation and better error states
+- Filter todos (All / Active / Completed)
+- Due dates and reminders
+- Authentication and user-specific todo lists
+- Unit and integration tests
+
+## Learning Credits
+
+Built as a hands-on learning project using Expo and Convex.
